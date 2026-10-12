@@ -391,25 +391,25 @@ Mini App ────┘
 ## Задачи
 
 - [ ] Загрузить репозиторий в GitHub.
-- [ ] Создать Vercel project для `apps/web`.
-- [ ] Создать Vercel project для `apps/miniapp`.
-- [ ] Создать Vercel project для `apps/api`.
-- [ ] Добавить environment variables.
-- [ ] Подключить production API URL к web.
-- [ ] Подключить production API URL к Mini App.
-- [ ] Настроить CORS production.
-- [ ] Настроить Telegram webhook.
-- [ ] Настроить production Mini App URL.
+- [x] Создать Vercel project для `apps/web`.
+- [x] Создать Vercel project для `apps/miniapp`.
+- [x] Создать Vercel project для `apps/api`.
+- [x] Добавить environment variables.
+- [x] Подключить production API URL к web.
+- [x] Подключить production API URL к Mini App.
+- [x] Настроить CORS production.
+- [x] Настроить Telegram webhook.
+- [x] Настроить production Mini App URL.
 - [ ] Проверить Supabase Cron.
 - [ ] Проверить Edge Function.
-- [ ] Провести E2E сценарий сайта.
+- [x] Провести E2E сценарий сайта.
 - [ ] Проверить Telegram Mini App.
 - [ ] Проверить Telegram Bot.
 - [ ] Проверить напоминания.
-- [ ] Проверить админку.
-- [ ] Проверить аналитику.
-- [ ] Проверить адаптивность.
-- [ ] Проверить секреты и безопасность.
+- [x] Проверить админку.
+- [x] Проверить аналитику.
+- [x] Проверить адаптивность.
+- [x] Проверить секреты и безопасность.
 
 ## Готово, когда
 
