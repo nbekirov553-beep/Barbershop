@@ -1,0 +1,19 @@
+{
+  "name": "@barbershop/notifications",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@barbershop/shared": "^0.1.0",
+    "postgres": "^3.4.9"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
+}

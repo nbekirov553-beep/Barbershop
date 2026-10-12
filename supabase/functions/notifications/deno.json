@@ -1,0 +1,9 @@
+{
+  "imports": {
+    "postgres": "npm:postgres@3.4.9",
+    "@barbershop/notifications": "../../../packages/notifications/src/index.ts",
+    "@barbershop/shared/format": "../../../packages/shared/src/format.ts",
+    "@barbershop/shared/shop": "../../../packages/shared/src/shop.ts",
+    "@barbershop/shared/time": "../../../packages/shared/src/time.ts"
+  }
+}

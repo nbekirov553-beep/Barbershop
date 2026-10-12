@@ -1,0 +1,6 @@
+project_id = "barbershop"
+
+# Функцию вызывает только Supabase Cron с заголовком x-cron-secret; JWT не нужен.
+[functions.notifications]
+verify_jwt = false
+import_map = "./functions/notifications/deno.json"

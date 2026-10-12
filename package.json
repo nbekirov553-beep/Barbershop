@@ -1,0 +1,36 @@
+{
+  "name": "barbershop",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w apps/web",
+    "dev:api": "npm run dev -w apps/api",
+    "dev:miniapp": "npm run dev -w apps/miniapp",
+    "dev:all": "concurrently -n api,web,miniapp -c yellow,cyan,magenta \"npm run dev:api\" \"npm run dev\" \"npm run dev:miniapp\"",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "barber:link": "npm run barber:link -w apps/api --",
+    "bot:webhook": "npm run bot:webhook -w apps/api --",
+    "admin:create": "npm run admin:create -w apps/api --",
+    "analytics:demo": "npm run analytics:demo -w apps/api --",
+    "notifications:run": "npm run notifications:run -w apps/api",
+    "notifications:role": "npm run notifications:role -w apps/api",
+    "notifications:cron": "npm run notifications:cron -w apps/api --",
+    "notifications:deploy": "npm run notifications:deploy -w apps/api",
+    "build": "npm run build -w apps/web",
+    "start": "npm run start -w apps/web",
+    "lint": "npm run lint -w apps/web",
+    "db:generate": "npm run generate -w packages/db",
+    "db:migrate": "npm run migrate -w packages/db",
+    "db:seed": "npm run seed -w packages/db",
+    "db:up": "npm run db:migrate && npm run db:seed",
+    "db:studio": "npm run studio -w packages/db"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.5"
+  }
+}
