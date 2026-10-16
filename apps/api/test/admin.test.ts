@@ -12,8 +12,8 @@ import {
   type AdminSettings,
   type AdminTimeOff,
 } from "@barbershop/shared";
-import { buildApp } from "../src/app";
-import { ADMIN_COOKIE, hashPassword } from "../src/admin/auth";
+import { buildApp } from "../src/register-api.js";
+import { ADMIN_COOKIE, hashPassword } from "../src/admin/auth.js";
 
 config({ path: fileURLToPath(new URL("../../../.env", import.meta.url)), quiet: true });
 

@@ -3,8 +3,8 @@ import { config } from "dotenv";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { createPrismaClient, type PrismaClient } from "@barbershop/db";
 import type { Availability, AvailabilityDays, Barber, Service } from "@barbershop/shared";
-import { buildApp } from "../src/app";
-import { isExclusionViolation } from "../src/services/bookings";
+import { buildApp } from "../src/register-api.js";
+import { isExclusionViolation } from "../src/services/bookings.js";
 
 config({ path: fileURLToPath(new URL("../../../.env", import.meta.url)), quiet: true });
 

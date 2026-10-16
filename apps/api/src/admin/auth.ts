@@ -3,7 +3,7 @@ import { promisify } from "node:util";
 import type { PrismaClient } from "@barbershop/db";
 import type { CookieSerializeOptions } from "@fastify/cookie";
 import type { FastifyRequest } from "fastify";
-import { AppError } from "../errors";
+import { AppError } from "../errors.js";
 
 export const ADMIN_COOKIE = "usto_admin";
 const SESSION_TTL_MS = 7 * 24 * 60 * 60_000;

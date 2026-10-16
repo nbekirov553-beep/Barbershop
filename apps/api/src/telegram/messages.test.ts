@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { barberMessages, clientMessages, escapeHtml, formatSlot, type BookingMessageData } from "./messages";
+import { barberMessages, clientMessages, escapeHtml, formatSlot, type BookingMessageData } from "./messages.js";
 
 const TZ = "Asia/Tashkent";
 const booking: BookingMessageData = {

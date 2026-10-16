@@ -1,5 +1,5 @@
 import { randomUUID } from "node:crypto";
-import { AppError } from "./errors";
+import { AppError } from "./errors.js";
 
 export const IMAGE_TYPES: Record<string, string> = {
   "image/jpeg": "jpg",

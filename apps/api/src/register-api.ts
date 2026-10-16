@@ -3,23 +3,23 @@ import cors from "@fastify/cors";
 import multipart from "@fastify/multipart";
 import rateLimit from "@fastify/rate-limit";
 import type { PrismaClient } from "@barbershop/db";
-import Fastify from "fastify";
+import Fastify, { type FastifyInstance } from "fastify";
 import { webhookCallback, type Bot } from "grammy";
-import type { AdminIdentity } from "./admin/auth";
-import { registerErrorHandlers } from "./errors";
-import { adminRoutes } from "./routes/admin";
-import { availabilityRoutes } from "./routes/availability";
-import { barbersRoutes } from "./routes/barbers";
-import { bookingsRoutes } from "./routes/bookings";
-import { healthRoutes } from "./routes/health";
-import { meRoutes } from "./routes/me";
-import { reviewsRoutes } from "./routes/reviews";
-import { servicesRoutes } from "./routes/services";
-import type { TelegramAuthOptions } from "./telegram/auth";
-import { createBot } from "./telegram/bot";
-import { createNotifier, silentNotifier, type Notifier } from "./telegram/notifier";
-import type { TelegramLinks } from "./telegram/shared";
-import { unavailableStorage, type MediaStorage } from "./storage";
+import type { AdminIdentity } from "./admin/auth.js";
+import { registerErrorHandlers } from "./errors.js";
+import { adminRoutes } from "./routes/admin/index.js";
+import { availabilityRoutes } from "./routes/availability.js";
+import { barbersRoutes } from "./routes/barbers.js";
+import { bookingsRoutes } from "./routes/bookings.js";
+import { dbHealthRoutes, healthRoutes } from "./routes/health.js";
+import { meRoutes } from "./routes/me.js";
+import { reviewsRoutes } from "./routes/reviews.js";
+import { servicesRoutes } from "./routes/services.js";
+import type { TelegramAuthOptions } from "./telegram/auth.js";
+import { createBot } from "./telegram/bot.js";
+import { createNotifier, silentNotifier, type Notifier } from "./telegram/notifier.js";
+import type { TelegramLinks } from "./telegram/shared.js";
+import { unavailableStorage, type MediaStorage } from "./storage.js";
 
 declare module "fastify" {
   interface FastifyInstance {
@@ -40,13 +40,12 @@ export type BotOptions = {
   links: TelegramLinks;
 };
 
-type BuildAppOptions = {
+export type ApiOptions = {
   prisma: PrismaClient;
   corsOrigins: string[];
   telegram?: TelegramAuthOptions;
   /** Без bot уведомления не отправляются, webhook не регистрируется. */
   bot?: BotOptions;
-  logger?: boolean;
   /** Secure-флаг cookie админки: в production только HTTPS. */
   secureCookies?: boolean;
   storage?: MediaStorage;
@@ -55,18 +54,30 @@ type BuildAppOptions = {
 
 export const TELEGRAM_WEBHOOK_PATH = "/api/v1/telegram/webhook";
 
-export async function buildApp({
-  prisma,
-  corsOrigins,
-  telegram = { maxAgeSec: 86_400, allowDevAuth: false },
-  bot: botOptions,
-  logger = true,
-  secureCookies = false,
-  storage = unavailableStorage,
-  botUsername,
-}: BuildAppOptions) {
+/** Для тестов: Fastify с /health и всем API. Production-entrypoint — src/index.ts. */
+export async function buildApp({ logger = true, ...options }: ApiOptions & { logger?: boolean }) {
   const app = Fastify({ logger });
+  await app.register(healthRoutes);
+  await registerApi(app, options);
+  return app;
+}
 
+/**
+ * Подключает API к уже созданному Fastify: декораторы, плагины, маршруты, Telegram webhook.
+ * Вызывается на корневом инстансе (не через register), чтобы декораторы были видны всем маршрутам.
+ */
+export async function registerApi(
+  app: FastifyInstance,
+  {
+    prisma,
+    corsOrigins,
+    telegram = { maxAgeSec: 86_400, allowDevAuth: false },
+    bot: botOptions,
+    secureCookies = false,
+    storage = unavailableStorage,
+    botUsername,
+  }: ApiOptions,
+) {
   app.decorate("prisma", prisma);
   app.decorate("telegram", telegram);
   app.decorateRequest("admin", null);
@@ -97,7 +108,7 @@ export async function buildApp({
 
   registerErrorHandlers(app);
 
-  await app.register(healthRoutes);
+  await app.register(dbHealthRoutes);
   await app.register(servicesRoutes);
   await app.register(barbersRoutes);
   await app.register(reviewsRoutes);
@@ -112,6 +123,4 @@ export async function buildApp({
       webhookCallback(app.bot, "fastify", { secretToken: botOptions.webhookSecret }),
     );
   }
-
-  return app;
 }

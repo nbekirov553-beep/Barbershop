@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { computeDaySlots, subtractIntervals, type DaySlotsInput } from "./slots";
+import { computeDaySlots, subtractIntervals, type DaySlotsInput } from "./slots.js";
 
 const h = (hours: number, minutes = 0) => hours * 60 + minutes;
 const fmt = (slots: number[]) =>

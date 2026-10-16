@@ -13,8 +13,8 @@ import {
   type AnalyticsRevenue,
   type AnalyticsServices,
 } from "@barbershop/shared";
-import { buildApp } from "../src/app";
-import { hashPassword } from "../src/admin/auth";
+import { buildApp } from "../src/register-api.js";
+import { hashPassword } from "../src/admin/auth.js";
 
 config({ path: fileURLToPath(new URL("../../../.env", import.meta.url)), quiet: true });
 

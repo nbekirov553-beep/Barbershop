@@ -2,12 +2,12 @@ import type { PrismaClient } from "@barbershop/db";
 import { REVIEW_COMMENT_PROMPT } from "@barbershop/notifications";
 import type { FastifyBaseLogger } from "fastify";
 import { Bot, InlineKeyboard, type Context } from "grammy";
-import { loadSettings } from "../domain/settings";
-import { AppError } from "../errors";
-import { cancelBooking } from "../services/bookings";
-import { BARBER_LINK_PREFIX, consumeBarberLinkCode } from "./link-codes";
-import { barberMessages, clientMessages, contactsText, startText } from "./messages";
-import type { Notifier } from "./notifier";
+import { loadSettings } from "../domain/settings.js";
+import { AppError } from "../errors.js";
+import { cancelBooking } from "../services/bookings.js";
+import { BARBER_LINK_PREFIX, consumeBarberLinkCode } from "./link-codes.js";
+import { barberMessages, clientMessages, contactsText, startText } from "./messages.js";
+import type { Notifier } from "./notifier.js";
 import {
   CANCEL_ABORT,
   CANCEL_ASK,
@@ -19,7 +19,7 @@ import {
   mainMenu,
   type BookingForMessage,
   type TelegramLinks,
-} from "./shared";
+} from "./shared.js";
 
 const BOOKING_LINK_PREFIX = "b_";
 const MY_BOOKINGS_LIMIT = 5;

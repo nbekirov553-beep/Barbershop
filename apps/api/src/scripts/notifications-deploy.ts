@@ -3,8 +3,8 @@ import { mkdtemp, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { env } from "../env";
-import { supabaseProjectRef } from "./env-file";
+import { env } from "../env.js";
+import { supabaseProjectRef } from "./env-file.js";
 
 /**
  * Деплой Edge Function notifications и её секретов. Нужен вход: npx supabase login

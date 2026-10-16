@@ -12,10 +12,10 @@ import {
 } from "@barbershop/shared";
 import type { FastifyInstance } from "fastify";
 import { z } from "zod";
-import { loadSettings } from "../../domain/settings";
-import { AppError, notFound } from "../../errors";
-import { computeAvailability, loadBookingContext } from "../../services/availability";
-import { cancelBooking, createBooking, rescheduleBooking } from "../../services/bookings";
+import { loadSettings } from "../../domain/settings.js";
+import { AppError, notFound } from "../../errors.js";
+import { computeAvailability, loadBookingContext } from "../../services/availability.js";
+import { cancelBooking, createBooking, rescheduleBooking } from "../../services/bookings.js";
 
 const MAX_RANGE_DAYS = 62;
 const idParams = z.object({ id: z.uuid({ error: "Некорректный id записи" }) });

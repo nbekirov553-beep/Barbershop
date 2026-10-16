@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "tsx watch --clear-screen=false src/server.ts",
-    "start": "tsx src/server.ts",
-    "build": "node scripts/build-vercel.mjs",
+    "dev": "tsx watch --clear-screen=false --env-file-if-exists=../../.env src/index.ts",
+    "start": "tsx --env-file-if-exists=../../.env src/index.ts",
+    "vercel-build": "npm run generate -w @barbershop/db",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:unit": "vitest run src",
@@ -34,7 +34,6 @@
   },
   "devDependencies": {
     "@types/node": "^26.6.4",
-    "esbuild": "^0.28.2",
     "tsx": "^4.23.15",
     "typescript": "^6.0.3",
     "vitest": "^4.1.11"

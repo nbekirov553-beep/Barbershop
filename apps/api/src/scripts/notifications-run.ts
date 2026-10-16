@@ -1,5 +1,5 @@
 import { createSql, createTelegramSender, runNotifications } from "@barbershop/notifications";
-import { env } from "../env";
+import { env } from "../env.js";
 
 /** Один прогон той же логики, что и в Edge Function, — для разработки без деплоя. */
 if (!env.TELEGRAM_BOT_TOKEN) {

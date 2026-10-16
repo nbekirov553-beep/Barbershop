@@ -1,6 +1,6 @@
 import { createSql } from "@barbershop/notifications";
-import { env } from "../env";
-import { supabaseProjectRef } from "./env-file";
+import { env } from "../env.js";
+import { supabaseProjectRef } from "./env-file.js";
 
 /**
  * Supabase Cron: каждые 5 минут pg_net вызывает Edge Function notifications.

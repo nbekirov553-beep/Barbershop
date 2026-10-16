@@ -3,8 +3,8 @@ import { config } from "dotenv";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { createPrismaClient, type PrismaClient } from "@barbershop/db";
 import type { Availability, AvailabilityDays, Barber, BookingView, Service } from "@barbershop/shared";
-import { TELEGRAM_WEBHOOK_PATH, buildApp } from "../src/app";
-import { createBarberLinkCode } from "../src/telegram/link-codes";
+import { TELEGRAM_WEBHOOK_PATH, buildApp } from "../src/register-api.js";
+import { createBarberLinkCode } from "../src/telegram/link-codes.js";
 
 config({ path: fileURLToPath(new URL("../../../.env", import.meta.url)), quiet: true });
 

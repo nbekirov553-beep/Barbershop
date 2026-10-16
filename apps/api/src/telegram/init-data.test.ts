@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { InitDataError, signInitData, validateInitData } from "./init-data";
+import { InitDataError, signInitData, validateInitData } from "./init-data.js";
 
 const BOT_TOKEN = "123456:TEST-token";
 const NOW = Date.UTC(2026, 9, 9, 12, 0);

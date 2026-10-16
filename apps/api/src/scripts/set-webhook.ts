@@ -4,10 +4,10 @@
  * На Vercel server.ts не запускается, поэтому меню бота задаётся здесь.
  */
 import { Bot } from "grammy";
-import { TELEGRAM_WEBHOOK_PATH } from "../app";
-import { links } from "../create";
-import { env } from "../env";
-import { configureBotMenu } from "../telegram/bot";
+import { TELEGRAM_WEBHOOK_PATH } from "../register-api.js";
+import { appLinks } from "../config.js";
+import { env } from "../env.js";
+import { configureBotMenu } from "../telegram/bot.js";
 
 if (!env.TELEGRAM_BOT_TOKEN) {
   console.error("Задайте TELEGRAM_BOT_TOKEN");
@@ -30,9 +30,9 @@ if (process.argv.includes("--delete")) {
     allowed_updates: ["message", "callback_query"],
     drop_pending_updates: true,
   });
-  await configureBotMenu(bot, links);
+  await configureBotMenu(bot, appLinks(env));
   console.log(`Webhook: ${url}`);
-  console.log(`Кнопка меню: ${links.miniAppUrl ?? "команды (MINIAPP_URL не задан)"}`);
+  console.log(`Кнопка меню: ${appLinks(env).miniAppUrl ?? "команды (MINIAPP_URL не задан)"}`);
 }
 
 const { url, pending_update_count, last_error_message } = await bot.api.getWebhookInfo();

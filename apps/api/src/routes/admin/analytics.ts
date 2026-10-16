@@ -22,8 +22,8 @@ import {
   type AnalyticsBarber,
   type AnalyticsBooking,
   type Period,
-} from "../../domain/analytics";
-import { loadSettings } from "../../domain/settings";
+} from "../../domain/analytics.js";
+import { loadSettings } from "../../domain/settings.js";
 
 const bookingSelect = {
   clientId: true,

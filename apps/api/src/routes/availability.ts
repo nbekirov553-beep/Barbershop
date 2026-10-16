@@ -8,7 +8,7 @@ import {
   type AvailabilityDays,
 } from "@barbershop/shared";
 import type { FastifyInstance } from "fastify";
-import { computeAvailability, loadBookingContext, mergeSlots } from "../services/availability";
+import { computeAvailability, loadBookingContext, mergeSlots } from "../services/availability.js";
 
 export async function availabilityRoutes(app: FastifyInstance) {
   const resolveExcluded = async (token: string | undefined) => {

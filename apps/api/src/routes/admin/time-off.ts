@@ -9,8 +9,8 @@ import {
 } from "@barbershop/shared";
 import type { FastifyInstance } from "fastify";
 import { z } from "zod";
-import { loadSettings } from "../../domain/settings";
-import { notFound } from "../../errors";
+import { loadSettings } from "../../domain/settings.js";
+import { notFound } from "../../errors.js";
 
 const idParams = z.object({ id: z.uuid({ error: "Некорректный id" }) });
 

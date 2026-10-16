@@ -11,7 +11,7 @@ import {
   type SendMessage,
   type Sql,
 } from "@barbershop/notifications";
-import { TELEGRAM_WEBHOOK_PATH, buildApp } from "../src/app";
+import { TELEGRAM_WEBHOOK_PATH, buildApp } from "../src/register-api.js";
 
 config({ path: fileURLToPath(new URL("../../../.env", import.meta.url)), quiet: true });
 

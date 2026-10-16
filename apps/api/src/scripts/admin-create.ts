@@ -1,8 +1,8 @@
 import { randomBytes } from "node:crypto";
 import { createPrismaClient } from "@barbershop/db";
 import { adminLoginSchema } from "@barbershop/shared";
-import { hashPassword } from "../admin/auth";
-import { env } from "../env";
+import { hashPassword } from "../admin/auth.js";
+import { env } from "../env.js";
 
 /**
  * Создаёт администратора или меняет пароль существующего; все его сессии сбрасываются.

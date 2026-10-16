@@ -1,7 +1,7 @@
 import { randomBytes } from "node:crypto";
 import { createSql } from "@barbershop/notifications";
-import { env } from "../env";
-import { supabaseProjectRef, upsertEnv } from "./env-file";
+import { env } from "../env.js";
+import { supabaseProjectRef, upsertEnv } from "./env-file.js";
 
 /**
  * Задаёт пароль роли notifications_worker и пишет в .env:

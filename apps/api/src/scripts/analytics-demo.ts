@@ -1,8 +1,8 @@
 import { randomBytes, randomUUID } from "node:crypto";
 import { createPrismaClient } from "@barbershop/db";
 import { addDays, getWeekday, toZoned, zonedToUtc } from "@barbershop/shared";
-import { loadSettings } from "../domain/settings";
-import { env } from "../env";
+import { loadSettings } from "../domain/settings.js";
+import { env } from "../env.js";
 
 /**
  * Демо-история для аналитики: прошедшие записи за последние недели у текущих мастеров.

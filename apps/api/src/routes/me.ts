@@ -1,7 +1,7 @@
 import type { Me, MyBookings } from "@barbershop/shared";
 import type { FastifyInstance } from "fastify";
-import { listTelegramBookings } from "../services/bookings";
-import { requireTelegramUser } from "../telegram/auth";
+import { listTelegramBookings } from "../services/bookings.js";
+import { requireTelegramUser } from "../telegram/auth.js";
 
 export async function meRoutes(app: FastifyInstance) {
   app.get("/api/v1/me", async (request): Promise<Me> => {

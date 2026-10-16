@@ -1,15 +1,15 @@
 import type { PrismaClient } from "@barbershop/db";
 import type { FastifyBaseLogger } from "fastify";
 import { GrammyError, type Api } from "grammy";
-import { loadSettings } from "../domain/settings";
-import { barberMessages, clientMessages } from "./messages";
+import { loadSettings } from "../domain/settings.js";
+import { barberMessages, clientMessages } from "./messages.js";
 import {
   bookingKeyboard,
   clientChatId,
   findBookingForMessage,
   type BookingForMessage,
   type TelegramLinks,
-} from "./shared";
+} from "./shared.js";
 
 type Previous = { startsAt: Date; endsAt: Date };
 /** skipClient: клиент уже видит результат в боте (например, отменил кнопкой). */

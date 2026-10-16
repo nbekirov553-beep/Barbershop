@@ -1,7 +1,7 @@
 import type { FastifyInstance } from "fastify";
 import { z } from "zod";
-import { AppError } from "../../errors";
-import { IMAGE_TYPES, MAX_IMAGE_BYTES, type MediaStorage } from "../../storage";
+import { AppError } from "../../errors.js";
+import { IMAGE_TYPES, MAX_IMAGE_BYTES, type MediaStorage } from "../../storage.js";
 
 const querySchema = z.object({ folder: z.enum(["barbers", "portfolio"]).default("barbers") });
 

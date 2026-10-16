@@ -11,7 +11,7 @@ import {
   type AnalyticsBarber,
   type AnalyticsBooking,
   type AnalyticsTimeOff,
-} from "./analytics";
+} from "./analytics.js";
 
 const TZ = "Asia/Tashkent";
 const at = (date: string, time: string) => zonedToUtc(date, toMinutes(time), TZ);

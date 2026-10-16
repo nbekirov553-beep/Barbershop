@@ -7,8 +7,8 @@ import {
 } from "@barbershop/shared";
 import type { FastifyInstance } from "fastify";
 import { z } from "zod";
-import { notFound } from "../errors";
-import { serviceSelect } from "./services";
+import { notFound } from "../errors.js";
+import { serviceSelect } from "./services.js";
 
 const toTime = (value: Date) => value.toISOString().slice(11, 16);
 

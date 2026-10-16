@@ -4,8 +4,8 @@
  * npm run barber:link              (список барберов и статус привязки)
  */
 import { createPrismaClient } from "@barbershop/db";
-import { env } from "../env";
-import { BARBER_LINK_PREFIX, createBarberLinkCode } from "../telegram/link-codes";
+import { env } from "../env.js";
+import { BARBER_LINK_PREFIX, createBarberLinkCode } from "../telegram/link-codes.js";
 
 const prisma = createPrismaClient(env.DATABASE_URL);
 const query = process.argv.slice(2).join(" ").trim();

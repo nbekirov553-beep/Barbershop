@@ -10,8 +10,8 @@ import {
   createBooking,
   getBooking,
   rescheduleBooking,
-} from "../services/bookings";
-import { getTelegramUser } from "../telegram/auth";
+} from "../services/bookings.js";
+import { getTelegramUser } from "../telegram/auth.js";
 
 export async function bookingsRoutes(app: FastifyInstance) {
   app.post("/api/v1/bookings", async (request, reply) => {

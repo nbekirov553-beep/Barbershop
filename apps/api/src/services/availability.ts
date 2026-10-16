@@ -7,9 +7,9 @@ import {
   toZoned,
   zonedToUtc,
 } from "@barbershop/shared";
-import { computeDaySlots, type Interval } from "../domain/slots";
-import { loadSettings, type BookingSettings } from "../domain/settings";
-import { AppError, notFound } from "../errors";
+import { computeDaySlots, type Interval } from "../domain/slots.js";
+import { loadSettings, type BookingSettings } from "../domain/settings.js";
+import { AppError, notFound } from "../errors.js";
 
 const timeOfDay = (value: Date) => value.getUTCHours() * 60 + value.getUTCMinutes();
 

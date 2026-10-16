@@ -1,6 +1,6 @@
 import type { PrismaClient } from "@barbershop/db";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import { TELEGRAM_WEBHOOK_PATH, buildApp } from "../app";
+import { TELEGRAM_WEBHOOK_PATH, buildApp } from "../register-api.js";
 
 const SECRET = "test-webhook-secret";
 const calls: { method: string; payload: Record<string, unknown> }[] = [];

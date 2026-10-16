@@ -7,8 +7,8 @@ import {
   requireAdmin,
   sessionCookieOptions,
   verifyCredentials,
-} from "../../admin/auth";
-import { AppError } from "../../errors";
+} from "../../admin/auth.js";
+import { AppError } from "../../errors.js";
 
 const LOGIN_ATTEMPTS = 10;
 const LOGIN_WINDOW = "15 minutes";

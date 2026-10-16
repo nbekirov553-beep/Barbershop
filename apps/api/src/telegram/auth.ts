@@ -1,7 +1,7 @@
 import type { FastifyRequest } from "fastify";
 import { z } from "zod";
-import { AppError } from "../errors";
-import { InitDataError, parseJson, validateInitData, type TelegramUser } from "./init-data";
+import { AppError } from "../errors.js";
+import { InitDataError, parseJson, validateInitData, type TelegramUser } from "./init-data.js";
 
 export type TelegramAuthOptions = {
   botToken?: string;

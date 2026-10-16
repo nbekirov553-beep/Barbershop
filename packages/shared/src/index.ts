@@ -1,8 +1,8 @@
 import { z } from "zod";
 
-export * from "./time";
-export * from "./admin";
-export * from "./analytics";
+export * from "./time.js";
+export * from "./admin.js";
+export * from "./analytics.js";
 
 const time = z.string().regex(/^\d{2}:\d{2}$/);
 const isoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Дата в формате YYYY-MM-DD");

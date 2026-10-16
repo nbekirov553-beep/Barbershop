@@ -2,15 +2,15 @@ import { randomBytes } from "node:crypto";
 import type { PrismaClient } from "@barbershop/db";
 import { reminderMarks } from "@barbershop/notifications";
 import { ANY_BARBER, toZoned, type BookingView } from "@barbershop/shared";
-import { loadSettings, type BookingSettings } from "../domain/settings";
-import { AppError, notFound } from "../errors";
-import type { TelegramUser } from "../telegram/init-data";
+import { loadSettings, type BookingSettings } from "../domain/settings.js";
+import { AppError, notFound } from "../errors.js";
+import type { TelegramUser } from "../telegram/init-data.js";
 import {
   computeAvailability,
   isWithinHorizon,
   loadBookingContext,
   type BookingContext,
-} from "./availability";
+} from "./availability.js";
 
 const slotTaken = () => new AppError(409, "SLOT_TAKEN", "Это время уже занято, выберите другое");
 

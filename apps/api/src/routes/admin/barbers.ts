@@ -9,8 +9,8 @@ import {
 } from "@barbershop/shared";
 import type { FastifyInstance } from "fastify";
 import { z } from "zod";
-import { AppError, notFound } from "../../errors";
-import { BARBER_LINK_PREFIX, createBarberLinkCode } from "../../telegram/link-codes";
+import { AppError, notFound } from "../../errors.js";
+import { BARBER_LINK_PREFIX, createBarberLinkCode } from "../../telegram/link-codes.js";
 
 const idParams = z.object({ id: z.uuid({ error: "Некорректный id" }) });
 
