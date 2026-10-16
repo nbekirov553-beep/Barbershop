@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "tsx watch --clear-screen=false --env-file-if-exists=../../.env src/index.ts",
     "start": "tsx --env-file-if-exists=../../.env src/index.ts",
-    "vercel-build": "npm run generate -w @barbershop/db",
+    "vercel-build": "node scripts/vercel-build.mjs",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:unit": "vitest run src",

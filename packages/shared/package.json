@@ -4,26 +4,10 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": {
-      "types": "./src/index.ts",
-      "compiled": "./src/index.js",
-      "default": "./src/index.ts"
-    },
-    "./time": {
-      "types": "./src/time.ts",
-      "compiled": "./src/time.js",
-      "default": "./src/time.ts"
-    },
-    "./format": {
-      "types": "./src/format.ts",
-      "compiled": "./src/format.js",
-      "default": "./src/format.ts"
-    },
-    "./shop": {
-      "types": "./src/shop.ts",
-      "compiled": "./src/shop.js",
-      "default": "./src/shop.ts"
-    }
+    ".": "./src/index.ts",
+    "./time": "./src/time.ts",
+    "./format": "./src/format.ts",
+    "./shop": "./src/shop.ts"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"
